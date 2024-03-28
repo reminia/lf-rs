@@ -1,3 +1,3 @@
-# lc
+# lf
 
-lc is a command to locate file in the default file explorer.
+lf is a command to locate file in the default file explorer.
