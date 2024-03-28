@@ -1,0 +1,8 @@
+[package]
+name = "lc"
+version = "0.1.0"
+authors = ["sleefd@gmail.com"]
+description = "locate a file in file explorer"
+edition = "2021"
+
+[dependencies]
