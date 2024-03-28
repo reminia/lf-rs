@@ -27,7 +27,7 @@ fn main() {
       Ok(file) if file.is_empty() => println!("not found {}", file_name),
       Ok(file) => {
        println!("Found {}", &file);
-       let _ = macos::open_folder_and_select_items(".", &[file.as_str()]);
+       let _ = macos::open_folder_and_select_items( &[file.as_str()]);
       }
       Err(err) => eprintln!("Cannot found file {} with error {}", file_name, err)
     }
