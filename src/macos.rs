@@ -1,3 +1,4 @@
+use std::fmt::Write;
 use std::process::Command;
 
 fn apple_script(files: &[&str]) -> String {
@@ -8,10 +9,15 @@ fn apple_script(files: &[&str]) -> String {
          {}\n\
          select selects\n\
          end tell",
-        files
-            .iter()
-            .map(|file| format!("set end of selects to POSIX file \"{}\" as alias\n", file))
-            .collect::<String>()
+        files.iter().fold(String::new(), |mut acc, file| {
+            writeln!(
+                &mut acc,
+                "set end of selects to POSIX file \"{}\" as alias",
+                file
+            )
+            .unwrap();
+            acc
+        })
     )
 }
 
