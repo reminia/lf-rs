@@ -27,7 +27,7 @@ fn main() {
                 println!("Found {}", &file);
                 lf::open(&[file.as_str()]);
             }
-            Err(err) => eprintln!("Failed: {}", err)
+            Err(err) => eprintln!("Failed: {}", err),
         }
     }
 }
