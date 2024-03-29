@@ -10,8 +10,8 @@ lf somefile
 ```
 
 ## Library Usage
-Open current directory and focus on src.
+Open current directory and focus on src and target.
 
 ```rust
-lf::open(&["src"])
+lf::open(&["src", "target"])
 ```
