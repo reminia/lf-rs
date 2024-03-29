@@ -29,7 +29,7 @@ fn main() {
                 println!("Found {}", &file);
                 macos::open_folder_and_select_items(&[file.as_str()]);
             }
-            Err(err) => eprintln!("Cannot found file {} with error {}", file_name, err),
+            Err(err) => eprintln!("Failed: {}", err)
         }
     }
 }
