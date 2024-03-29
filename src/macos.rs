@@ -4,11 +4,13 @@ fn apple_script(files: &[&str]) -> String {
     format!(
         "tell application \"Finder\"\n\
          activate\n\
+         set selects to {{}}\n\
          {}\n\
+         select selects\n\
          end tell",
         files
             .iter()
-            .map(|file| format!("select POSIX file \"{}\" as alias", file))
+            .map(|file| format!("set end of selects to POSIX file \"{}\" as alias\n", file))
             .collect::<String>()
     )
 }
