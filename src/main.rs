@@ -5,9 +5,16 @@ fn filter_files(file: &str) -> io::Result<String> {
     for entry in entries {
         let entry = entry?;
         let file_name = entry.file_name();
-        let file_name = file_name.to_string_lossy();
-        if file_name.to_lowercase().contains(&file.to_lowercase()) {
-            return Ok(file_name.to_string());
+        let path = entry.path();
+        let extension = path.extension();
+        let full_name = match extension {
+            Some(ext) =>
+                file_name.to_str().unwrap().to_string() + ext.to_str().unwrap(),
+            None =>
+                file_name.to_str().unwrap().to_string()
+        };
+        if full_name.to_lowercase().contains(&file.to_lowercase()) {
+            return Ok(full_name);
         }
     }
     Ok("".to_string())
