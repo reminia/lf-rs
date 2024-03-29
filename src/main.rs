@@ -1,4 +1,5 @@
 use std::{env, fs, io};
+
 mod macos;
 
 fn filter_files(file: &str) -> io::Result<String> {
@@ -17,7 +18,7 @@ fn filter_files(file: &str) -> io::Result<String> {
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() <= 1 {
-        println!("No file specificed, open current directory");
+        println!("No file specified, open current directory");
         macos::open_folder_and_select_items(&["."]);
     } else {
         let file_name = args.get(1).unwrap();
