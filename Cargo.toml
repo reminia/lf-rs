@@ -3,6 +3,8 @@ name = "lf"
 version = "0.1.0"
 authors = ["sleefd@gmail.com"]
 description = "locate a file in file explorer"
+repsoitory = "https://github.com/reminia/lf-rs"
+keywords = ["open", "focus"]
 edition = "2021"
 
 [dependencies]

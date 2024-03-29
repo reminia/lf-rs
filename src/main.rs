@@ -1,7 +1,5 @@
 use std::{env, fs, io};
 
-mod macos;
-
 fn filter_files(file: &str) -> io::Result<String> {
     let entries = fs::read_dir(".")?;
     for entry in entries {
@@ -19,7 +17,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() <= 1 {
         println!("No file specified, open current directory");
-        macos::open_folder_and_select_items(&["."]);
+        lf::open(&["."]);
     } else {
         let file_name = args.get(1).unwrap();
         let result = filter_files(file_name);
@@ -27,7 +25,7 @@ fn main() {
             Ok(file) if file.is_empty() => println!("not found {}", file_name),
             Ok(file) => {
                 println!("Found {}", &file);
-                macos::open_folder_and_select_items(&[file.as_str()]);
+                lf::open(&[file.as_str()]);
             }
             Err(err) => eprintln!("Failed: {}", err)
         }
