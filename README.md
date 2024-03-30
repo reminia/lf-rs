@@ -1,4 +1,5 @@
 # lf
+[![Crates.io](https://img.shields.io/crates/v/open.svg)](https://crates.io/crates/lf)
 ![ci](https://github.com/reminia/lf-rs/actions/workflows/rust.yml/badge.svg)
 
 lf is a command to locate file in the default file explorer of os, build & run it with cargo.
