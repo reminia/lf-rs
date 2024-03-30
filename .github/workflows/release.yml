@@ -25,7 +25,7 @@ jobs:
 
       - name: publish package
         run: |
-          cargo login ${{ env.CRATESIO_TOKEN }}
+          cargo login ${{ secrets.CRATESIO_TOKEN }}
           cargo publish
 
       - name: release codes
