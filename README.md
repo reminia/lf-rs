@@ -7,7 +7,7 @@ lf is a command to locate file in the default file explorer of os, build & run i
 ## Command Usage
 Clone and install it by `cargo install --path .`, then u can use lf command everywhere like:
 ```bash
-lf somefile
+lf file
 ```
 
 ## Library Usage
