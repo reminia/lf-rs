@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+  packages: write
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: build
+        run: cargo build
+
+      - name: publish package
+        run: |
+          cargo login ${{ env.CRATESIO_TOKEN }}
+          cargo publish
+
+      - name: release codes
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ env.TAG }}
+          allowUpdates: true
