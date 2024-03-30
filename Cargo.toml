@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["sleefd@gmail.com"]
 description = "locate a file in file explorer"
 repository = "https://github.com/reminia/lf-rs"
+license = "MIT"
 keywords = ["open", "focus"]
 edition = "2021"
 
