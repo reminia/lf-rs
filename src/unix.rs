@@ -12,7 +12,7 @@ pub fn open_folder_and_select_items(paths: &[&str]) -> bool {
     // debug cmd
     if !result.status.success() {
         if let Some(stderr) = String::from_utf8(result.stderr).ok() {
-            println!("stderr: {}", stderr);
+            eprintln!("stderr: {}", stderr);
         }
     }
     result.status.success()
