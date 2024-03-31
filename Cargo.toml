@@ -1,11 +1,11 @@
 [package]
 name = "lf"
 version = "0.1.0"
-authors = ["sleefd@gmail.com"]
-description = "locate a file in file explorer"
+authors = ["sleefd sleefd@gmail.com"]
+description = "Locate a file in file explorer"
 repository = "https://github.com/reminia/lf-rs"
 license = "MIT"
-keywords = ["open", "focus"]
+keywords = ["cli", "open", "file"]
 edition = "2021"
 
 [dependencies]
