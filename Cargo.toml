@@ -5,7 +5,7 @@ authors = ["sleefd sleefd@gmail.com"]
 description = "Locate a file in file explorer"
 repository = "https://github.com/reminia/lf-rs"
 license = "MIT"
-keywords = ["cli", "open", "file"]
+keywords = ["open", "select", "focus"]
 edition = "2021"
 
 [dependencies]
