@@ -6,7 +6,7 @@ pub fn open_folder_and_select_items(paths: &[&str]) -> bool {
     }
     let mut cmd = Command::new("nautilus");
     cmd.arg("-s").arg(paths[0]);
-    let result = cmd.output().expect("Fail to execute nautilus");
+    let result = cmd.output().expect("failed to execute nautilus");
     // debug cmd
     if !result.status.success() {
         if let Some(stderr) = String::from_utf8(result.stderr).ok() {

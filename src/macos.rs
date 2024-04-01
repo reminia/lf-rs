@@ -27,7 +27,7 @@ pub fn open_folder_and_select_items(paths: &[&str]) -> bool {
     let result = Command::new("osascript")
         .args(&script_args)
         .output()
-        .expect("Failed to execute AppleScript");
+        .expect("failed to execute AppleScript");
 
     result.status.success()
 }

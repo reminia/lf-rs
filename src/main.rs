@@ -22,12 +22,12 @@ fn main() {
         let file_name = args.get(1).unwrap();
         let result = filter_files(file_name);
         match result {
-            Ok(file) if file.is_empty() => println!("not found {}", file_name),
+            Ok(file) if file.is_empty() => println!("Not found {}", file_name),
             Ok(file) => {
                 println!("Found {}", &file);
                 lf::open(&[file.as_str()]);
             }
-            Err(err) => eprintln!("Failed: {}", err),
+            Err(err) => eprintln!("Error: {}", err),
         }
     }
 }
