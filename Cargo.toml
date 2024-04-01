@@ -1,6 +1,6 @@
 [package]
 name = "lf"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["sleefd sleefd@gmail.com"]
 description = "Locate a file in file explorer"
 repository = "https://github.com/reminia/lf-rs"
