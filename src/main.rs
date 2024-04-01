@@ -25,7 +25,12 @@ fn main() {
             Ok(file) if file.is_empty() => println!("Not found {}", file_name),
             Ok(file) => {
                 println!("Found {}", &file);
-                lf::open(&[file.as_str()]);
+                let output = lf::open(&[file.as_str()]);
+                if !output.status.success() {
+                    if let Ok(stderr) = String::from_utf8(output.stderr) {
+                        eprintln!("Open failed with stderr: {}", stderr);
+                    }
+                }
             }
             Err(err) => eprintln!("Error: {}", err),
         }
