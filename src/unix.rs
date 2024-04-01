@@ -1,17 +1,16 @@
-use std::process::Command;
+use std::process::{Command, Output};
 
-pub fn open_folder_and_select_items(paths: &[&str]) -> bool {
+pub fn open_folder_and_select_items(paths: &[&str]) -> Output {
     if paths.len() > 1 {
         println!("unix supports to select only 1 file.")
     }
     let mut cmd = Command::new("nautilus");
     cmd.arg("-s").arg(paths[0]);
-    let result = cmd.output().expect("failed to execute nautilus");
-    // debug cmd
-    if !result.status.success() {
-        if let Some(stderr) = String::from_utf8(result.stderr).ok() {
-            eprintln!("stderr: {}", stderr);
-        }
-    }
-    result.status.success()
+    cmd.output().expect("failed to execute nautilus")
+    // // debug cmd
+    // if !result.status.success() {
+    //     if let Some(stderr) = String::from_utf8(result.stderr).ok() {
+    //         eprintln!("stderr: {}", stderr);
+    //     }
+    // }
 }

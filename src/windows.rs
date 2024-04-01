@@ -1,13 +1,11 @@
-use std::process::Command;
+use std::process::{Command, Output};
 
-pub fn open_folder_and_select_items(paths: &[&str]) -> bool {
+pub fn open_folder_and_select_items(paths: &[&str]) -> Output {
     if paths.len() > 1 {
         println!("windows supports to select only 1 file.")
     }
     let mut cmd = Command::new("explorer.exe");
-    let arg = format!("/select,{}", paths.join(","));
+    let arg = format!("/select,{}", paths[0]);
     cmd.arg(arg);
-    let result = cmd.output().expect("failed to run explorer.exe");
-
-    result.status.success()
+    cmd.output().expect("failed to run explorer.exe")
 }

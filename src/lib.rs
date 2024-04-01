@@ -1,3 +1,4 @@
+use std::process::Output;
 #[cfg(target_os = "windows")]
 use windows as os;
 
@@ -7,7 +8,7 @@ use macos as os;
 #[cfg(target_os = "linux")]
 use unix as os;
 
-pub fn open(paths: &[&str]) -> bool {
+pub fn open(paths: &[&str]) -> Output {
     os::open_folder_and_select_items(paths)
 }
 

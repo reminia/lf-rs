@@ -1,5 +1,5 @@
 use std::fmt::Write;
-use std::process::Command;
+use std::process::{Command, Output};
 
 fn apple_script(files: &[&str]) -> String {
     format!(
@@ -21,13 +21,11 @@ fn apple_script(files: &[&str]) -> String {
     )
 }
 
-pub fn open_folder_and_select_items(paths: &[&str]) -> bool {
+pub fn open_folder_and_select_items(paths: &[&str]) -> Output {
     let script = apple_script(paths);
     let script_args = vec!["-e", &script];
-    let result = Command::new("osascript")
+    Command::new("osascript")
         .args(&script_args)
         .output()
-        .expect("failed to execute AppleScript");
-
-    result.status.success()
+        .expect("failed to execute AppleScript")
 }
